@@ -1,14 +1,10 @@
-// /api/track-click.js
+export default function handler(req, res) {
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Only POST allowed" });
+    }
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Only POST allowed' });
-  }
+    // Podés loggear si querés
+    console.log("Click recibido:", req.body);
 
-  const { fbclid, landing, pixelId, accessToken, dominio } = req.body;
-
-  // Lógica: loguear, enviar, etc.
-  console.log({ fbclid, landing, pixelId, accessToken, dominio });
-
-  return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true });
 }
