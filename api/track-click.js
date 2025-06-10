@@ -29,16 +29,24 @@ export default async function handler(req, res) {
   return res.status(200).json({ success: true });
 }
 
-fetch('https://script.google.com/macros/s/AKfycbxcVfpHIGukNQwmyXKtiiDpyTkq3PEqsaGbOpvHGe3eBxn1DZxUeKiN3vFo_3LIDA2oLQ/exec', {
+await fetch('https://script.google.com/macros/s/AKfycbxcVfpHIGukNQwmyXKtiiDpyTkq3PEqsaGbOpvHGe3eBxn1DZxUeKiN3vFo_3LIDA2oLQ/exec', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    landing: 'landing2',
-    pixelId: '1256811905804570',
-    fbclid: '123456abc',
-    dominio: 'landing2.corleoneteam.site',
-    accessToken: 'EAAG...'
+    landing,
+    pixelId,
+    fbclid,
+    dominio,
+    accessToken
   })
-});
+})
+  .then(r => r.json())
+  .then(data => {
+    console.log("✅ Datos enviados a Google Sheets:", data);
+  })
+  .catch(err => {
+    console.error("❌ Error al enviar a Google Sheets:", err);
+  });
+
