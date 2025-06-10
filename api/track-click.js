@@ -28,3 +28,17 @@ export default async function handler(req, res) {
 
   return res.status(200).json({ success: true });
 }
+
+fetch('https://script.google.com/macros/s/AKf.../exec', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    landing: 'landing2',
+    pixelId: '1256811905804570',
+    fbclid: '123456abc',
+    dominio: 'landing2.corleoneteam.site',
+    accessToken: 'EAAG...'
+  })
+});
