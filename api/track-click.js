@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   return res.status(200).json({ success: true });
 }
 
-fetch('https://script.google.com/macros/s/AKf.../exec', {
+fetch('https://script.google.com/macros/s/AKfycbxcVfpHIGukNQwmyXKtiiDpyTkq3PEqsaGbOpvHGe3eBxn1DZxUeKiN3vFo_3LIDA2oLQ/exec', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
